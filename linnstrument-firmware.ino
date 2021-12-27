@@ -759,6 +759,7 @@ struct GlobalSettings {
   int accentNotes[12];                       // bitmask array that determines which notes receive accent lights (octaves, white keys, black keys, etc.)
   byte rowOffset;                            // interval between rows. 0 = no overlap, 1-12 = interval, 13 = guitar
   signed char customRowOffset;               // the custom row offset that can be configured at the location of the octave setting
+  byte colOffset;                            // interval between columns: 1 (default) = semitones, 2 = whole tones
   byte guitarTuning[MAXROWS];                // the notes used for each row for the guitar tuning, 0-127
   VelocitySensitivity velocitySensitivity;   // See VelocitySensitivity values
   unsigned short minForVelocity;             // 1-127

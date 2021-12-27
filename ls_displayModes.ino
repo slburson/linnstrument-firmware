@@ -1665,6 +1665,14 @@ void paintGlobalSettingsDisplay() {
         // no nothing
         break;
     }
+    switch (Global.colOffset) {
+      case 1:
+        lightLed(5, 4);
+        break;
+      case 2:
+        lightLed(6, 4);
+        break;
+    }
 
     // This code assumes that switchSelect values are the same as the row numbers
     if (switchSelect == SWITCH_FOOT_B) {

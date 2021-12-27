@@ -1927,13 +1927,18 @@ byte getNoteNumber(byte split, byte col, byte row) {
     noteCol = (NUMCOLS - col);
   }
 
-  notenum = determineRowOffsetNote(split, row) + noteCol - 1;
+  notenum = determineRowOffsetNote(split, row) + Global.colOffset * noteCol - 1;
 
   return notenum - Split[split].transposeLights;
 }
 
 short determineRowOffsetNote(byte split, byte row) {
-  short lowest = 30;                                  // 30 = F#2, which is 10 semitones below guitar low E (E3/52). High E = E5/76
+  short lowest;
+  if (Global.colOffset == 1) {
+    lowest = 30;                                      // 30 = F#2, which is 10 semitones below guitar low E (E3/52). High E = E5/76
+  } else {
+    lowest = 20;                                      // 20 = A1, which is 20 semitones below guitar low E (E3/52).
+  }
 
   if (Global.rowOffset <= 12) {                       // if rowOffset is set to between 0 and 12..
     short offset = Global.rowOffset;
